@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * AeroSense Eco - Frontend Engine & Data Stream Controller
+ * Smart Environmental Sensing System (ESS) - Frontend Engine & Data Stream Controller
  * Bengkel Mekatronika Politeknik Kota Malang (POLTEKOM)
  * Mengikuti Konstitusi RULEBOOK.md & Kontrak Arsitektur 5-Layer
  * ==============================================================================
@@ -391,7 +391,7 @@ async function fetchLatestTelemetry() {
   }
 }
 
-// --- 7. ECOBOT CHATBOT SYSTEM ---
+// --- 7. ESI (ENVIRONMENTAL SENSING INTELLIGENCE) CHATBOT SYSTEM ---
 function appendUserMessage(text) {
   const feed = document.getElementById('chatFeed');
   if (!feed) return;
@@ -416,7 +416,7 @@ function showTypingIndicator() {
   ind.innerHTML = `
     <div class="w-8 h-8 rounded-xl bg-indigo-600/35 border border-indigo-400/30 flex-shrink-0 flex items-center justify-center text-base shadow-sm">🤖</div>
     <div class="bg-slate-900/80 rounded-2xl rounded-tl-none p-3 border border-white/10 text-slate-300 text-xs flex items-center gap-2">
-      <span>EcoBot sedang menganalisis data sensor...</span>
+      <span>ESI sedang menganalisis data sensor...</span>
       <span class="inline-flex gap-1">
         <span class="w-1.5 h-1.5 bg-sky-400 rounded-full typing-dot"></span>
         <span class="w-1.5 h-1.5 bg-sky-400 rounded-full typing-dot"></span>
@@ -551,5 +551,5 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchLatestTelemetry();
   setInterval(fetchLatestTelemetry, (typeof CONFIG !== 'undefined' && CONFIG.POLL_INTERVAL) ? CONFIG.POLL_INTERVAL : 2500);
 
-  console.log("🌿 AeroSense Eco IoT Dashboard initialized successfully!");
+  console.log("🏭 Smart Environmental Sensing System (ESS) POLTEKOM initialized successfully!");
 });
