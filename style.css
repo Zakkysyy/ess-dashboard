@@ -1,93 +1,52 @@
-/* ==========================================================================
-   AeroSense IoT - Custom Stylesheet
-   Industrial Dark Mode, Glassmorphism & Neon Glow Utilities
-   ========================================================================== */
+/* =============================================================================
+   AeroSense Eco - Stylesheet (Stitch AI Clean Design System)
+   Bengkel Mekatronika Politeknik Kota Malang (POLTEKOM)
+   ============================================================================= */
 
 body {
-  background-color: #080c14;
-  background-image: 
-    radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
-    radial-gradient(at 85% 20%, rgba(168, 85, 247, 0.07) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
-  color: #f1f5f9;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #f1f5f9;
+      background-color: #0b1120;
+    }
+
+    .glass-acrylic {
+      background: rgba(15, 23, 42, 0.58);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.45);
+    }
+
+    .glass-card-clean {
+      background: rgba(15, 23, 42, 0.52);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card-clean:hover {
+      background: rgba(15, 23, 42, 0.65);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 38px -6px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Custom smooth scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.3); }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.35); }
+
+/* Typing Indicator Animation */
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* Glassmorphism Containers */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.68);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+.typing-dot {
+  animation: pulseDot 1.4s infinite ease-in-out both;
 }
-
-.glass-card {
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.45);
-}
-
-/* Sensor Neon Glow Borders */
-.neon-border-cyan { 
-  box-shadow: 0 0 15px -3px rgba(56, 189, 248, 0.25); 
-}
-
-.neon-border-amber { 
-  box-shadow: 0 0 15px -3px rgba(245, 158, 11, 0.25); 
-}
-
-.neon-border-purple { 
-  box-shadow: 0 0 15px -3px rgba(168, 85, 247, 0.25); 
-}
-
-.neon-border-danger { 
-  box-shadow: 0 0 25px 2px rgba(239, 68, 68, 0.35); 
-  border-color: rgba(239, 68, 68, 0.5) !important; 
-}
-
-/* Custom Sleek Scrollbar */
-::-webkit-scrollbar { 
-  width: 6px; 
-  height: 6px; 
-}
-
-::-webkit-scrollbar-track { 
-  background: rgba(15, 23, 42, 0.4); 
-}
-
-::-webkit-scrollbar-thumb { 
-  background: rgba(255, 255, 255, 0.15); 
-  border-radius: 9999px; 
-}
-
-::-webkit-scrollbar-thumb:hover { 
-  background: rgba(255, 255, 255, 0.28); 
-}
-
-/* Scrollbar thin for chips */
-.scrollbar-thin::-webkit-scrollbar {
-  height: 4px;
-}
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Subtle animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.25s ease-out forwards;
-}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }

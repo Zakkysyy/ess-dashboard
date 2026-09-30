@@ -1,542 +1,144 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AeroSense IoT - Environmental & Gas Safety Monitoring</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
+<!DOCTYPE html><html class="dark" lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AeroSense Eco - Informasi Kualitas Udara &amp; Keselamatan Kampus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            slateDark: '#080c14',
-            panelBg: 'rgba(15, 23, 42, 0.75)',
-            cardBg: 'rgba(17, 24, 39, 0.65)',
-            borderMuted: 'rgba(255, 255, 255, 0.08)',
-            cyanGlow: '#38bdf8',
-            amberGlow: '#f59e0b',
-            purpleGlow: '#a855f7',
-            dangerRed: '#ef4444',
-            safeEmerald: '#10b981',
-          },
-          animation: {
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'ping-siren': 'pingSiren 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
-          },
-          keyframes: {
-            pingSiren: {
-              '75%, 100%': { transform: 'scale(1.75)', opacity: '0' },
-            }
+            brandGreen: '#10b981',
+            brandBlue: '#38bdf8',
+            brandAmber: '#f59e0b',
+            brandRed: '#ef4444',
           }
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
-
-  <!-- TOP HEADER -->
-  <header class="sticky top-0 z-40 border-b border-white/10 glass-panel px-4 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
-    <!-- Brand / Hardware tags -->
-    <div class="flex items-center gap-3.5">
-      <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500/20 via-blue-600/30 to-purple-600/20 border border-cyan-400/30 text-cyan-400">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-        <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-        </span>
+<body class="min-h-screen flex flex-col relative selection:bg-emerald-400 selection:text-slate-950">
+<!-- 3D CARTOON CAMPUS BACKGROUND (IMAGE_3) -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="background-image: linear-gradient(rgba(8, 14, 28, 0.62), rgba(11, 17, 32, 0.82)), url('https://lh3.googleusercontent.com/aida/AEtjO1W-UFa7Q1DlWN106gOv6Hyhje7eLN1wb4IxW9sEruEQ-QM3f6JPbc2SJ7b3DpKO2hZWBPaTDj_3tBBuFQEEePAXxoFd4NFZoy2QizIUuivf6Yj8CZJwfvHymWHgwjq6UDwarDyRy_A_YAKyCl77a7DIcZJ99nmeYxJaWzGEt2tgx9pPRyarLK2bmDq3PzsjD4zuCrnyICqWChCF6cbgFXAtvyMu_lFG_KimmBvbdBSjDHvR8zAcARKAjDI'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+<div class="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent opacity-85"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400/10 via-transparent to-black/50"></div>
+</div>
+<!-- TOP HEADER -->
+<header class="sticky top-0 z-40 bg-slate-950/40 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500/25 to-teal-400/20 border border-emerald-400/40 flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/15">
+        🌿
       </div>
-      <div>
-        <div class="flex items-center gap-2.5">
-          <h1 class="font-bold text-base lg:text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-            Smart Environmental Sensing (ESS)
+<div>
+<div class="flex items-center gap-2.5 flex-wrap">
+<h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">
+            AeroSense Eco
           </h1>
-          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-            POLTEKOM
-          </span>
-        </div>
-        <div class="flex items-center gap-2 mt-0.5 text-[11px] text-slate-400 font-mono">
-          <span class="flex items-center gap-1 text-slate-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Node: NODE-MRS01
-          </span>
-          <span class="text-slate-600">•</span>
-          <span class="flex items-center gap-1 text-slate-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Hot Buffer RTDB
-          </span>
-          <span class="text-slate-600">•</span>
-          <span class="flex items-center gap-1 text-slate-300">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> ESI AI Gateway
-          </span>
-        </div>
-      </div>
-    </div>
+<span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Lab Sehat &amp; Aman</span>
+</div>
+<p class="text-xs text-slate-300 font-medium">Informasi Kualitas Udara &amp; Keselamatan Ruangan Lab Terkini</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- Status pill -->
+<div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-xs font-medium" id="systemStatusPill">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span id="systemStatusText" class="">Sistem Pemantau Aktif</span>
+</div>
+<!-- Simulator Button: Normal / Bahaya -->
+<button class="group px-4 py-2 rounded-xl bg-red-500/15 hover:bg-red-500/25 border border-red-500/35 text-red-200 text-xs font-semibold flex items-center gap-2 transition-all shadow-md active:scale-95" id="btnDangerToggle" onclick="toggleDangerSimulation()">
+<span class="text-base group-hover:scale-125 transition-transform" id="btnDangerIcon">🚨</span>
+<span id="btnDangerLabel" class="">Simulasi Status: Bahaya</span>
+</button>
+<!-- Audio Mute Toggle -->
+<button class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white transition" id="btnAudioMute" onclick="toggleAudio()" title="Nyalakan/Matikan Suara Peringatan">
+<span class="material-symbols-outlined text-[19px] block" id="audioIcon">volume_up</span>
+</button>
+</div>
+</header>
+<!-- MAIN DASHBOARD CONTENT -->
+<main class="flex-1 max-w-[1550px] w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6 relative z-10">
+<!-- 1. BANNER STATUS UTAMA (RAMAH & MUDAH DIPAHAMI) -->
+<section class="relative overflow-hidden rounded-3xl bg-slate-950/40 backdrop-blur-md border border-white/15 text-slate-100 shadow-2xl transition-all duration-500 group" id="mainStatusBanner">
+  <!-- Ambient background glow behind slider -->
+  <div class="absolute -right-16 -top-16 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500" id="bannerGlow"></div>
+  <div class="absolute -left-16 -bottom-16 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-    <!-- Header Actions & Controls -->
-    <div class="flex items-center gap-2.5 sm:gap-3 flex-wrap">
-      <!-- Status Pill -->
-      <div id="connectionPill" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-medium font-mono transition-all">
-        <span class="relative flex h-2 w-2">
-          <span id="connectionPing" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+  <!-- Carousel Viewport -->
+  <div class="relative w-full h-64 sm:h-80 md:h-[370px] overflow-hidden select-none" id="campusCarousel">
+    <!-- Slides Container -->
+    <div class="flex w-full h-full transition-transform duration-700 ease-out" id="carouselTrack" style="transform: translateX(-200%);"><div class="w-full h-full flex-shrink-0 relative"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi_W1XotFn0jwjdV7uR295XtEDRinLbyVHs237ZTSu27npvQhgxGsmrq4FA-bLHF4IafUecm3bCVbDX73bh4YgYNIGol7H3tSdzWXN8Zz5iDEWQ09gU3y9XwJM9dnAgBMHb0cXG2iYiQqXxnqXDHLBtwpap_iN6senW5O6pw6CWvsJyxWsGufHcLM-3Ke3l2w8QZuxohZlyiB69baljk8SeHiClzlxf99B-2C65_xHdFX8XN6j5IhmJ1Oqpz5DDmkkNQ" alt="Gedung Utama &amp; Fakultas POLTEKOM" class="w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/25 text-emerald-300 border border-emerald-400/30 flex items-center gap-1.5 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Gedung Terpadu</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-400/30 backdrop-blur-md">Arsitektur Modern POLTEKOM</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">Gedung Utama &amp; Fakultas POLTEKOM</h2><p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed drop-shadow-sm">Tampak perspektif modern kampus dengan aksen merah dan biru, menaungi ruang laboratorium dan perkuliahan vokasi terintegrasi.</p></div></div><div class="w-full h-full flex-shrink-0 relative"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBplDFwLTzD_AD2jb-aR2VGHYghq0PkZw4i4toVoyZGV5vzsjiQ_LhDG0DmQm0uZZYQ7W1Tr-nO4XMP_ezyaFlx7d0O14QrSmv_cV8U0EH88ffTKQzPf1jf2WRJG66VqwyisKlXPGksF7XcXCY9rf9d5Io7InvgyCYiExoj54F0wqxt1M-FN37vT-k4xPeUua-WKxzy6o6uMmDO89MFQuSVf32Pj6W6feyyEB6ILD7T9AtW8aK0x3ioJUaFuoIs1GK6qg" alt="Gedung Rektorat &amp; Gerbang Utama POLTEKOM" class="w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/25 text-sky-300 border border-sky-400/30 flex items-center gap-1.5 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-sky-400"></span> Fasad Ikonik</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-slate-200 border border-white/15 backdrop-blur-md">Pusat Administrasi &amp; Rektorat</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">Gedung Rektorat &amp; Gerbang Utama POLTEKOM</h2><p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed drop-shadow-sm">Tampak depan simetris ikonik Politeknik Kota Malang dengan pilar gagah cerah serta sistem pemantauan terpusat.</p></div></div><div class="w-full h-full flex-shrink-0 relative"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0U9VyRFLKfZSw-yFTL4E9gcObqKvgaybySN5kTM0idNsy4y0ZUkgTaozoLYe2W1QL1LHuJo6ZGYyh4KBm31kKAQYRGLZ6I_VTM9-cBMKT8geUvcK0XK6iJeha0fLMw4EeqL0XHWwg_OcN-HsBu0xoFo6tH5AEpNnvMhxy2ig3ZsRvPtowFZvFBnBF_U24VW23IJe7_oN8CPfwQfdfguOa6BtgdqE2wHgNUXAWsNe0J4S1kxVdKs8Vf-lN16UaXbYrNA" alt="Mahasiswa &amp; Lingkungan Kampus Hijau POLTEKOM" class="w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/25 text-teal-300 border border-teal-400/30 flex items-center gap-1.5 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-teal-400"></span> Komunitas Mahasiswa</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 backdrop-blur-md">Eco-Campus Asri</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">Mahasiswa &amp; Lingkungan Kampus Hijau</h2><p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed drop-shadow-sm">Aktivitas mahasiswa di lanskap terbuka POLTEKOM yang hijau, asri, berhawa sejuk, dan terjamin kualitas udaranya.</p></div></div></div>
+
+    <!-- Top Badges Overlay -->
+    <div class="absolute top-4 left-4 right-4 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between pointer-events-none z-20">
+      <div class="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-white/15 pointer-events-auto shadow-md">
+        <span class="w-7 h-7 rounded-xl bg-gradient-to-tr from-sky-500/30 to-teal-400/30 border border-sky-400/35 flex items-center justify-center text-sm">
+          🏛️
         </span>
-        <span id="connectionStatusText">Live Simulator</span>
+        <div class="flex flex-col">
+          <span class="text-[11px] font-bold text-white tracking-tight">POLTEKOM</span>
+          <span class="text-[9px] text-sky-300 font-mono">Galeri Kampus</span>
+        </div>
       </div>
 
-      <!-- Simulator/Danger Trigger Toggle -->
-      <button id="toggleDangerBtn" onclick="toggleDangerSimulation()" class="group relative px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-300 hover:text-red-200 text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm">
-        <span class="text-base group-hover:scale-110 transition-transform">⚡</span>
-        <span id="dangerBtnText">Simulate Danger</span>
-      </button>
-
-      <!-- Audio Alert Mute/Unmute -->
-      <button id="audioToggleBtn" onclick="toggleAudioAlarm()" title="Toggle Siren Audio" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-slate-300 hover:text-white transition">
-        <svg id="audioIcon" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-        </svg>
-      </button>
-
-      <!-- Settings / Config Modal Trigger -->
-      <button onclick="openConfigModal()" title="Firebase & Threshold Settings" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-slate-300 hover:text-white text-xs font-medium transition">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        <span>Settings</span>
-      </button>
+      <div class="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border border-white/15 pointer-events-auto shadow-md text-xs font-mono text-emerald-300 font-semibold">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="hidden sm:inline">Kampus Aktif Terpantau</span>
+        <span class="sm:hidden">Aktif</span>
+      </div>
     </div>
-  </header>
 
-  <!-- MAIN WRAPPER -->
-  <div class="flex-1 max-w-[1600px] w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+    <!-- Prev & Next Arrows -->
+    <button onclick="prevSlide()" aria-label="Slide Sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-2xl bg-slate-950/60 hover:bg-slate-900/90 text-white border border-white/20 hover:border-sky-400/50 backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-90 shadow-lg">
+      <span class="material-symbols-outlined text-xl block">chevron_left</span>
+    </button>
+    <button onclick="nextSlide()" aria-label="Slide Selanjutnya" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-2xl bg-slate-950/60 hover:bg-slate-900/90 text-white border border-white/20 hover:border-sky-400/50 backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-90 shadow-lg">
+      <span class="material-symbols-outlined text-xl block">chevron_right</span>
+    </button>
 
-    <!-- DYNAMIC EMERGENCY ALERT BANNER -->
-    <section id="alertBanner" class="relative overflow-hidden rounded-2xl p-4 sm:p-5 transition-all duration-500 border bg-emerald-950/20 border-emerald-500/30 text-emerald-300">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <!-- Banner Left: Status & Icon -->
-        <div class="flex items-center gap-3.5">
-          <div id="bannerIconWrapper" class="flex-shrink-0 w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-            <svg id="bannerIcon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span id="bannerTitle" class="font-bold text-sm sm:text-base tracking-wide uppercase">
-                Environment Normal
-              </span>
-              <span id="bannerModeBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white/80">
-                ALL SENSORS COMPLIANT
-              </span>
-            </div>
-            <p id="bannerDescription" class="text-xs sm:text-sm text-slate-300 mt-0.5">
-              Atmospheric readings are within standard OSHA and ISO safety parameters. No active alerts.
-            </p>
-          </div>
-        </div>
-
-        <!-- Banner Right: Actuator Status Indicator -->
-        <div class="flex items-center gap-3 self-start md:self-auto bg-black/30 px-3.5 py-2 rounded-xl border border-white/10">
-          <div class="text-right font-mono">
-            <div class="text-[10px] uppercase tracking-wider text-slate-400">Hardware Actuator (GPIO 5)</div>
-            <div id="actuatorLabel" class="text-xs font-bold text-slate-300">PHYSICAL RED LED: <span id="actuatorVal" class="text-slate-400">STANDBY (OFF)</span></div>
-          </div>
-          <div id="hardwareLedLight" class="w-4 h-4 rounded-full bg-slate-600 border border-slate-400 transition-all duration-300"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4 TELEMETRY CARDS GRID -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-      
-      <!-- Card 1: DHT22 (Temp & Humidity) -->
-      <div id="cardDHT22" class="glass-card rounded-2xl p-5 relative overflow-hidden neon-border-cyan">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-400">DHT22 • GPIO 4</span>
-            <h3 class="text-sm font-semibold text-slate-200 mt-0.5">Climate Conditions</h3>
-          </div>
-          <div class="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
-          </div>
-        </div>
-
-        <div class="mt-4 grid grid-cols-2 gap-3 divide-x divide-white/10">
-          <div>
-            <div class="text-[11px] text-slate-400">Temperature</div>
-            <div class="flex items-baseline gap-1 mt-1 font-mono">
-              <span id="valTemp" class="text-2xl lg:text-3xl font-bold text-white">26.4</span>
-              <span class="text-xs font-normal text-cyan-400">°C</span>
-            </div>
-          </div>
-          <div class="pl-3">
-            <div class="text-[11px] text-slate-400">Humidity</div>
-            <div class="flex items-baseline gap-1 mt-1 font-mono">
-              <span id="valHum" class="text-2xl lg:text-3xl font-bold text-white">58</span>
-              <span class="text-xs font-normal text-cyan-400">%</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-          <span class="text-slate-400 font-mono text-[11px]">Threshold: &lt; 35°C</span>
-          <span id="badgeDHT" class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">Optimal</span>
-        </div>
-      </div>
-
-      <!-- Card 2: MQ-2 (Smoke & Flammable Gas) -->
-      <div id="cardMQ2" class="glass-card rounded-2xl p-5 relative overflow-hidden neon-border-amber">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-amber-400">MQ-2 • GPIO 0</span>
-            <h3 class="text-sm font-semibold text-slate-200 mt-0.5">LPG, Smoke &amp; Gas</h3>
-          </div>
-          <div class="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-            </svg>
-          </div>
-        </div>
-
-        <div class="mt-4">
-          <div class="flex items-baseline justify-between font-mono">
-            <div class="flex items-baseline gap-1.5">
-              <span id="valMQ2" class="text-2xl lg:text-3xl font-bold text-white">124</span>
-              <span class="text-xs font-semibold text-amber-400">PPM</span>
-            </div>
-            <span id="badgeMQ2" class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">Clean</span>
-          </div>
-
-          <!-- Progress Bar -->
-          <div class="w-full bg-slate-800 rounded-full h-2 mt-3 overflow-hidden">
-            <div id="barMQ2" class="bg-gradient-to-r from-emerald-400 via-amber-400 to-red-500 h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-          <span class="text-slate-400 font-mono text-[11px]">Safe Limit: &lt; 300 PPM</span>
-          <span class="text-slate-400 text-[11px] font-mono">LPG / Propane</span>
-        </div>
-      </div>
-
-      <!-- Card 3: MQ-7 (Carbon Monoxide - CO) -->
-      <div id="cardMQ7" class="glass-card rounded-2xl p-5 relative overflow-hidden neon-border-purple">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-purple-400">MQ-7 • GPIO 1</span>
-            <h3 class="text-sm font-semibold text-slate-200 mt-0.5">Carbon Monoxide (CO)</h3>
-          </div>
-          <div class="p-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-          </div>
-        </div>
-
-        <div class="mt-4">
-          <div class="flex items-baseline justify-between font-mono">
-            <div class="flex items-baseline gap-1.5">
-              <span id="valMQ7" class="text-2xl lg:text-3xl font-bold text-white">18</span>
-              <span class="text-xs font-semibold text-purple-400">PPM</span>
-            </div>
-            <span id="badgeMQ7" class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">Harmless</span>
-          </div>
-
-          <!-- Progress Bar -->
-          <div class="w-full bg-slate-800 rounded-full h-2 mt-3 overflow-hidden">
-            <div id="barMQ7" class="bg-gradient-to-r from-emerald-400 via-purple-400 to-red-500 h-2 rounded-full transition-all duration-500" style="width: 18%"></div>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-          <span class="text-slate-400 font-mono text-[11px]">Hazard Threshold: 50 PPM</span>
-          <span class="text-slate-400 text-[11px] font-mono">Toxic Inhalation</span>
-        </div>
-      </div>
-
-      <!-- Card 4: Hardware & Network Diagnostics -->
-      <div class="glass-card rounded-2xl p-5 relative overflow-hidden">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-emerald-400">Hardware Node</span>
-            <h3 class="text-sm font-semibold text-slate-200 mt-0.5">ESP32-C3 Diagnostics</h3>
-          </div>
-          <div class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
-            </svg>
-          </div>
-        </div>
-
-        <div class="mt-4 space-y-2 font-mono text-xs">
-          <div class="flex items-center justify-between">
-            <span class="text-slate-400">WiFi RSSI:</span>
-            <span id="diagRSSI" class="font-semibold text-emerald-400">-58 dBm (Strong)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-400">Node Uptime:</span>
-            <span id="diagUptime" class="font-semibold text-slate-200">03h : 42m : 18s</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-slate-400">Last Telemetry:</span>
-            <span id="diagLastSync" class="text-cyan-400 font-medium">Just now</span>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-          <span class="text-slate-400 font-mono text-[11px]">Free Heap: 284 KB</span>
-          <span class="flex items-center gap-1 text-[11px] text-emerald-400">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Synced
-          </span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- TWO COLUMN: REAL-TIME ANALYTICS (LEFT 2/3) + AI ASSISTANT (RIGHT 1/3) -->
-    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      
-      <!-- Analytics Section (Span 2) -->
-      <div class="lg:col-span-2 glass-panel rounded-2xl p-5 lg:p-6 flex flex-col justify-between">
-        <div>
-          <!-- Chart Header & Filter Controls -->
-          <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
-            <div>
-              <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
-                <span>Real-time Telemetry Stream</span>
-                <span class="flex h-2 w-2 relative">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                </span>
-              </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Multi-channel sensor progression graph (updated every 2 seconds)</p>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <!-- Time Filter Pills -->
-              <div class="flex bg-slate-900/80 p-1 rounded-lg border border-white/10 text-xs font-mono">
-                <button onclick="setChartFilter('live')" id="filterLive" class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 font-semibold transition">Live</button>
-                <button onclick="setChartFilter('1h')" id="filter1h" class="px-2.5 py-1 rounded text-slate-400 hover:text-white transition">1 Hour</button>
-                <button onclick="setChartFilter('24h')" id="filter24h" class="px-2.5 py-1 rounded text-slate-400 hover:text-white transition">24 Hours</button>
-              </div>
-
-              <!-- Export CSV Button -->
-              <button onclick="exportCSVData()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-xs text-slate-300 hover:text-white transition font-mono">
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                <span>Export CSV</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Chart Legend -->
-          <div class="flex flex-wrap items-center gap-4 sm:gap-6 py-3 text-xs font-mono">
-            <div class="flex items-center gap-1.5">
-              <span class="w-3 h-0.5 bg-cyan-400 rounded-full"></span>
-              <span class="text-slate-300">Temperature (°C)</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <span class="w-3 h-0.5 bg-amber-400 rounded-full"></span>
-              <span class="text-slate-300">MQ-2 Smoke/Gas (PPM)</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <span class="w-3 h-0.5 bg-purple-400 rounded-full"></span>
-              <span class="text-slate-300">MQ-7 Toxic CO (PPM)</span>
-            </div>
-            <div class="flex items-center gap-1.5 ml-auto text-slate-400 text-[11px]">
-              <span class="w-2 h-2 rounded-full border border-red-400 bg-red-400/20"></span>
-              <span>Safety Limit line (PPM)</span>
-            </div>
-          </div>
-
-          <!-- Canvas Graph Container -->
-          <div class="relative w-full h-[260px] sm:h-[300px] mt-2 bg-slate-950/40 rounded-xl border border-white/5 p-2">
-            <canvas id="telemetryCanvas" class="w-full h-full block"></canvas>
-          </div>
-        </div>
-
-        <!-- Metric Stream Mini Footnotes -->
-        <div class="mt-4 pt-3 border-t border-white/5 grid grid-cols-3 gap-2 text-center text-[11px] font-mono text-slate-400">
-          <div>Peak Temp (24h): <span id="peakTemp" class="text-slate-200">28.9°C</span></div>
-          <div>Peak MQ-2 (24h): <span id="peakMQ2" class="text-slate-200">182 PPM</span></div>
-          <div>Peak MQ-7 (24h): <span id="peakMQ7" class="text-slate-200">31 PPM</span></div>
-        </div>
-      </div>
-
-      <!-- Integrated AI Safety Assistant (Span 1) -->
-      <div class="glass-panel rounded-2xl p-5 flex flex-col h-[520px]">
-        <!-- AI Header -->
-        <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-500/20 to-cyan-500/20 border border-purple-400/30 flex items-center justify-center text-purple-300">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-sm font-bold text-white flex items-center gap-1.5">
-                ESI Safety Assistant
-              </h3>
-              <div class="flex items-center gap-1 text-[11px] text-emerald-400 font-mono">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> FastAPI &amp; Gemini ReAct
-              </div>
-            </div>
-          </div>
-          <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-purple-500/15 text-purple-300 border border-purple-500/30">
-            ReAct Tool Calling
-          </span>
-        </div>
-
-        <!-- Chat Feed Area -->
-        <div id="aiChatFeed" class="flex-1 overflow-y-auto my-3 space-y-3 pr-1 text-xs">
-          <!-- Initial AI greeting -->
-          <div class="flex gap-2.5 items-start">
-            <div class="w-6 h-6 rounded-md bg-purple-600/30 border border-purple-400/40 flex-shrink-0 flex items-center justify-center text-[10px] text-purple-300 font-bold font-mono">ESI</div>
-            <div class="bg-slate-800/80 rounded-2xl rounded-tl-none p-3 border border-white/5 text-slate-200 max-w-[90%] leading-relaxed">
-              Halo! Saya <strong>ESI</strong>, asisten keselamatan bengkel mekatronika POLTEKOM. Saya terhubung ke backend FastAPI dan model Gemini Flash-Lite untuk memantau data sensor <em>DHT22, MQ-2,</em> dan <em>MQ-7</em> secara real-time. Ada yang bisa saya bantu terkait keselamatan kerja atau prosedur bengkel?
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick Question Chips -->
-        <div class="py-2 border-t border-white/5">
-          <div class="text-[10px] uppercase font-mono text-slate-400 mb-1.5">Pertanyaan Cepat:</div>
-          <div class="flex gap-1.5 overflow-x-auto pb-1.5 scrollbar-thin">
-            <button onclick="sendQuickPrompt('Cek Suhu & Kelembapan')" class="flex-shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/30 text-[11px] text-slate-300 transition whitespace-nowrap">
-              🌡️ Suhu & Kelembapan
-            </button>
-            <button onclick="sendQuickPrompt('Status Gas LPG / Asap')" class="flex-shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/10 hover:border-amber-500/30 text-[11px] text-slate-300 transition whitespace-nowrap">
-              🔥 Gas LPG & Asap
-            </button>
-            <button onclick="sendQuickPrompt('Bahaya Gas Beracun CO (MQ-7)')" class="flex-shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-purple-500/20 hover:text-purple-300 border border-white/10 hover:border-purple-500/30 text-[11px] text-slate-300 transition whitespace-nowrap">
-              ⚠️ Gas Beracun CO
-            </button>
-            <button onclick="sendQuickPrompt('Laporan Keselamatan Total')" class="flex-shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-emerald-500/20 hover:text-emerald-300 border border-white/10 hover:border-emerald-500/30 text-[11px] text-slate-300 transition whitespace-nowrap">
-              🛡️ Total Audit
-            </button>
-            <button onclick="sendQuickPrompt('Prosedur Evakuasi Darurat')" class="flex-shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-red-500/20 hover:text-red-300 border border-white/10 hover:border-red-500/30 text-[11px] text-slate-300 transition whitespace-nowrap">
-              💡 SOP Evakuasi
-            </button>
-          </div>
-        </div>
-
-        <!-- Chat Input Bar -->
-        <form onsubmit="handleChatSubmit(event)" class="flex items-center gap-2 pt-2 border-t border-white/10">
-          <input 
-            type="text" 
-            id="chatInput" 
-            placeholder="Tanyakan status sensor atau SOP keselamatan..." 
-            class="flex-1 bg-slate-900/90 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/50 transition font-sans"
-          />
-          <button type="submit" class="p-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition flex-shrink-0">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-            </svg>
-          </button>
-        </form>
-      </div>
-
-    </section>
-
-  </div>
-
-  <!-- CONFIGURATION / SETTINGS MODAL -->
-  <div id="settingsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="relative w-full max-w-lg glass-panel rounded-2xl p-6 border border-white/15 shadow-2xl space-y-5">
-      <!-- Modal Header -->
-      <div class="flex items-center justify-between pb-3 border-b border-white/10">
-        <div class="flex items-center gap-2.5">
-          <div class="p-2 rounded-lg bg-cyan-500/20 text-cyan-400">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-base font-bold text-white">System & Firebase Settings</h3>
-            <p class="text-xs text-slate-400">Configure cloud endpoints and actuator thresholds</p>
-          </div>
-        </div>
-        <button onclick="closeConfigModal()" class="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Cloud Configuration Fields -->
-      <div class="space-y-3.5 text-xs font-mono">
-        <div>
-          <label class="block text-slate-300 mb-1">Firebase RTDB Hot Buffer URL</label>
-          <input id="cfgDbUrl" type="url" placeholder="https://environmental-sensing-f6e1c-default-rtdb.asia-southeast1.firebasedatabase.app/telemetry/buffer.json" class="w-full bg-slate-900 border border-white/15 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-cyan-400 font-mono text-xs" value="https://environmental-sensing-f6e1c-default-rtdb.asia-southeast1.firebasedatabase.app/telemetry/buffer.json">
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-slate-300 mb-1">FastAPI Gateway URL</label>
-            <input id="cfgBackendUrl" type="url" placeholder="http://localhost:8000" class="w-full bg-slate-900 border border-white/15 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-cyan-400 font-mono text-xs" value="http://localhost:8000">
-          </div>
-          <div>
-            <label class="block text-slate-300 mb-1">Default Node ID</label>
-            <input id="cfgNodeId" type="text" placeholder="NODE-MRS01" class="w-full bg-slate-900 border border-white/15 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-cyan-400 font-mono text-xs" value="NODE-MRS01">
-          </div>
-        </div>
-
-        <div class="pt-2 border-t border-white/10">
-          <div class="text-[11px] font-sans font-semibold text-slate-200 uppercase tracking-wider mb-2">Safety Limits (Trigger GPIO 5 Red LED)</div>
-          
-          <div class="grid grid-cols-3 gap-3">
-            <div>
-              <label class="block text-slate-400 text-[10px] mb-1">Temp Max (°C)</label>
-              <input id="cfgTempMax" type="number" value="35" class="w-full bg-slate-900 border border-white/15 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs">
-            </div>
-            <div>
-              <label class="block text-slate-400 text-[10px] mb-1">MQ-2 Max (PPM)</label>
-              <input id="cfgMQ2Max" type="number" value="300" class="w-full bg-slate-900 border border-white/15 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs">
-            </div>
-            <div>
-              <label class="block text-slate-400 text-[10px] mb-1">MQ-7 Max (PPM)</label>
-              <input id="cfgMQ7Max" type="number" value="50" class="w-full bg-slate-900 border border-white/15 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="flex items-center justify-between pt-3 border-t border-white/10">
-        <button onclick="testFirebaseConnection()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-200 border border-white/10 transition flex items-center gap-1.5">
-          <span id="testSpinner" class="hidden animate-spin">🌀</span>
-          <span id="testBtnLabel">Test Connection</span>
-        </button>
-
-        <div class="flex items-center gap-2">
-          <button onclick="closeConfigModal()" class="px-4 py-2 rounded-xl bg-transparent hover:bg-white/5 text-xs text-slate-300 transition">
-            Cancel
-          </button>
-          <button onclick="saveConfiguration()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition shadow-lg shadow-cyan-500/20">
-            Save Settings
-          </button>
-        </div>
-      </div>
+    <!-- Slide Dots Indicators -->
+    <div class="absolute bottom-3 sm:bottom-4 right-4 sm:right-8 z-20 flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
+      <button onclick="goToSlide(0)" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300" aria-label="Slide 1"></button>
+      <button onclick="goToSlide(1)" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300" aria-label="Slide 2"></button>
+      <button onclick="goToSlide(2)" class="carousel-dot w-6 h-2 rounded-full bg-emerald-400 transition-all duration-300" aria-label="Slide 3"></button>
     </div>
   </div>
 
-  <!-- SCRIPT ENGINE -->
+  
+</section>
+<!-- 2. GRID 3 KARTU STATUS BESAR (AWAM-FRIENDLY) + CHATBOT ECOBOT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT: 3 KARTU STATUS UTAMA (Zero Technical Jargon) -->
+<div class="lg:col-span-5 xl:col-span-5 space-y-4"><div class="rounded-2xl p-4 sm:p-5 border border-sky-400/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20" id="cardComfort" style="background: rgba(15, 23, 42, 0.22); box-shadow: rgba(0, 0, 0, 0.3) 0px 16px 36px 0px;"><div class="flex items-start justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-sky-500/20 border border-sky-400/35 flex items-center justify-center text-2xl shadow-sm">🌡️</div><div><div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>Kondisi Udara</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-sky-400/10 text-sky-300 border border-sky-400/30 font-mono">Sensor DHT22</span></div><h3 class="text-base font-bold text-white mt-0.5">Kenyamanan Ruangan (Suhu &amp; Udara)</h3></div></div><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-400/30 flex-shrink-0" id="badgeComfort">Optimal</span></div><div class="my-3"><div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm" id="displayComfort">25°C • Sejuk &amp; Pas</div><div class="flex flex-wrap items-center gap-2 mt-1.5"><span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1" id="badgeHumidity"><span class="">💧</span> Kelembapan 52%</span><span class="text-xs text-slate-300 font-medium">Sirkulasi baik</span></div><div class="mt-3 w-full bg-slate-950/60 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-sky-400 via-teal-400 to-emerald-400 transition-all duration-500" id="barComfort" style="width: 45%;"></div></div></div><div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs"><span class="text-slate-300 font-medium">Kesimpulan:</span><span class="font-bold text-emerald-400 flex items-center gap-1 text-xs" id="summaryComfort"><span class="">✅</span> Sangat nyaman untuk riset &amp; praktikum</span></div></div><div class="rounded-2xl p-4 sm:p-5 border border-emerald-500/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20" id="cardSmoke" style="background: rgba(15, 23, 42, 0.22); box-shadow: rgba(0, 0, 0, 0.3) 0px 16px 36px 0px;"><div class="flex items-start justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-400/35 flex items-center justify-center text-2xl shadow-sm" id="iconSmokeBox">🛡️</div><div><div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Pencegahan Kebakaran</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-mono">Sensor MQ-2</span></div><h3 class="text-base font-bold text-white mt-0.5">Keamanan Asap &amp; Gas Bocor</h3></div></div><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex-shrink-0" id="badgeSmoke">0% Risiko</span></div><div class="my-3"><div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 tracking-tight drop-shadow-sm" id="displaySmoke">BERSIH (Tidak Ada Asap/Gas)</div><p class="text-xs text-slate-200 mt-1.5 leading-relaxed" id="labelSmokeRisk">Sensor tidak menemukan adanya asap kebakaran atau kebocoran gas LPG.</p><div class="mt-3 space-y-1"><div class="flex justify-between text-[11px] font-medium text-slate-400"><span class="text-emerald-400 font-bold">Aman (0%)</span><span class="">Waspada</span><span class="text-red-400 font-bold">Bahaya</span></div><div class="w-full bg-slate-950/60 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-500" id="barSmoke" style="width: 8%;"></div></div></div></div><div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs"><span class="text-slate-300 font-medium">Status Proteksi:</span><span class="font-bold text-emerald-400 flex items-center gap-1 text-xs" id="summarySmoke"><span class="">🛡️</span> Aman dari kebakaran &amp; LPG</span></div></div><div class="rounded-2xl p-4 sm:p-5 border border-teal-500/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20" id="cardTox" style="background: rgba(15, 23, 42, 0.22); box-shadow: rgba(0, 0, 0, 0.3) 0px 16px 36px 0px;"><div class="flex items-start justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-teal-500/20 border border-teal-400/35 flex items-center justify-center text-2xl shadow-sm" id="iconToxBox">🫁</div><div><div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-teal-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>Kesehatan Pernapasan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-teal-500/15 text-teal-300 border border-teal-500/30 font-mono">Sensor MQ-7</span></div><h3 class="text-base font-bold text-white mt-0.5">Kualitas Udara &amp; Gas Beracun</h3></div></div><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30 flex-shrink-0" id="badgeTox">Sangat Bersih</span></div><div class="my-3"><div class="text-2xl sm:text-3xl font-extrabold text-teal-300 tracking-tight drop-shadow-sm" id="displayTox">BEBAS RACUN (100% Aman)</div><p class="text-xs text-slate-200 mt-1.5 leading-relaxed" id="labelToxDesc">Kadar udara murni dan sangat bersih untuk dihirup oleh praktikan.</p><div class="mt-3 space-y-1"><div class="flex justify-between text-[11px] font-medium text-slate-400"><span class="text-emerald-400 font-bold">Sehat</span><span class="">Normal</span><span class="text-red-400 font-bold">Berbahaya</span></div><div class="w-full bg-slate-950/60 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-teal-400 to-emerald-400 transition-all duration-500" id="barTox" style="width: 5%;"></div></div></div></div><div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs"><span class="text-slate-300 font-medium">Uji Toksisitas:</span><span class="font-bold text-emerald-400 flex items-center gap-1 text-xs" id="summaryTox"><span class="">🍃</span> Tidak terdeteksi Karbon Monoksida</span></div></div></div>
+<!-- RIGHT: JENDELA CHATBOT ECOBOT -->
+<aside class="lg:col-span-7 xl:col-span-7 sticky top-24"><div class="bg-slate-950/30 backdrop-blur-md rounded-3xl p-5 sm:p-7 border border-white/15 flex flex-col h-[670px] shadow-2xl relative"><div class="flex items-center justify-between pb-4 border-b border-white/10"><div class="flex items-center gap-3.5"><div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500/25 via-indigo-500/20 to-emerald-500/20 border border-sky-400/40 flex items-center justify-center text-2xl shadow-inner">🤖</div><div><h3 class="text-lg font-bold text-white flex items-center gap-2">EcoBot Lab AI<span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">Smart Assistant</span></h3><div class="flex items-center gap-1.5 text-xs text-emerald-400 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Asisten Pemantau Kualitas Lab Aktif</div></div></div><div class="flex items-center gap-2"><span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online 24 Jam</span></div></div><div class="flex-1 overflow-y-auto my-4 space-y-3.5 pr-2 text-sm" id="chatFeed"><div class="flex gap-3 items-start"><div class="w-9 h-9 rounded-xl bg-indigo-600/35 border border-indigo-400/30 flex-shrink-0 flex items-center justify-center text-lg shadow-sm">🤖</div><div class="bg-slate-950/50 backdrop-blur-sm rounded-2xl rounded-tl-none p-4 border border-white/10 text-slate-100 max-w-[85%] leading-relaxed shadow-sm">Halo! Saya <strong>EcoBot Lab</strong>. Ruangan Laboratorium POLTEKOM saat ini aman, sejuk, dan udaranya sangat bersih. Ada informasi terkait kualitas udara, suhu, atau protokol keselamatan lab yang ingin kamu tanyakan?</div></div></div><div class="py-3 border-t border-white/10"><div class="text-xs font-bold text-slate-300 mb-2.5 uppercase tracking-wider flex items-center justify-between"><span class="">Pertanyaan Cepat:</span><span class="text-slate-400 lowercase font-normal">klik tombol di bawah untuk bertanya instan</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-sky-500/20 text-slate-200 hover:text-sky-300 border border-white/10 hover:border-sky-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Apakah udara lab sehat?')"><span class="">🍃</span> Apakah udara lab sehat &amp; bebas polusi?</button><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-amber-500/20 text-slate-200 hover:text-amber-300 border border-white/10 hover:border-amber-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Bagaimana suhu ruangan lab saat ini?')"><span class="">🌡️</span> Berapa suhu &amp; kelembapan saat ini?</button><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-red-500/20 text-slate-200 hover:text-red-300 border border-white/10 hover:border-red-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Apakah ada asap atau kebocoran gas?')"><span class="">🔥</span> Cek deteksi asap &amp; kebocoran gas LPG</button><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 text-slate-200 hover:text-emerald-300 border border-white/10 hover:border-emerald-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Tips keselamatan lab')"><span class="">💡</span> Tips menjaga udara &amp; keselamatan lab</button></div></div><form class="flex items-center gap-2.5 pt-3 border-t border-white/10" onsubmit="handleUserSubmit(event)"><input class="flex-1 bg-slate-950/70 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition shadow-inner" id="inputMessage" placeholder="Tulis pertanyaanmu seputar lab di sini..." type="text"><button class="px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition flex-shrink-0 shadow-lg shadow-emerald-500/25 active:scale-95 flex items-center gap-1.5" type="submit"><span class="text-xs font-bold hidden sm:inline">Kirim</span><span class="material-symbols-outlined text-lg block">send</span></button></form></div></aside>
+</div>
+</main>
+<!-- SCRIPTS ENGINE -->
   <script src="config.js"></script>
   <script src="app.js"></script>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+</body></html>
