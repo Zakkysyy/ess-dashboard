@@ -1,150 +1,235 @@
-<!DOCTYPE html><html class="dark" lang="id" style=""><head>
+<!DOCTYPE html><html class="dark" lang="id"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Smart Environmental Sensing System (ESS) - POLTEKOM</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            brandGreen: '#10b981',
-            brandBlue: '#38bdf8',
-            brandAmber: '#f59e0b',
-            brandRed: '#ef4444',
-          }
-        }
-      }
-    }
-  </script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { fontFamily: { sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'], mono: ['"JetBrains Mono"', 'monospace'] } } }
+  }
+</script>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen flex flex-col relative selection:bg-emerald-400 selection:text-slate-950">
-<!-- 3D CARTOON CAMPUS BACKGROUND (IMAGE_3) -->
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="background-image: linear-gradient(rgba(8, 14, 28, 0.62), rgba(11, 17, 32, 0.82)), url('assets/bg_campus.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
-<div class="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-transparent opacity-85"></div>
-<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400/10 via-transparent to-black/50"></div>
+<body class="min-h-screen flex flex-col relative selection:bg-amber-500 selection:text-stone-950" style="background-color: #0f1115; color: #f5f5f4;">
+<!-- WARM CHARCOAL BACKGROUND OVERLAY -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" style="background-image: linear-gradient(rgba(15, 17, 21, 0.82), rgba(15, 17, 21, 0.94)), url('assets/bg_campus.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+  <div class="absolute inset-0 bg-gradient-to-t from-[#0f1115] via-transparent to-transparent opacity-95"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-black/75"></div>
 </div>
-<!-- TOP HEADER -->
-<header class="sticky top-0 z-40 bg-slate-950/40 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
-<div class="flex items-center gap-3.5">
-<div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500/25 to-teal-400/20 border border-emerald-400/40 flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/15">
-        🌿
+
+<!-- TOP HEADER (WARM CHARCOAL & AMBER ACCENT) -->
+<header class="sticky top-0 z-40 bg-[#0f1115]/85 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+  <div class="flex items-center gap-3.5">
+    <div class="w-11 h-11 rounded-2xl bg-amber-500/15 border border-amber-400/25 flex items-center justify-center text-2xl shadow-sm">🌿</div>
+    <div>
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">Smart Environmental Sensing System (ESS)</h1>
+        <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Lab Sehat & Aman</span>
       </div>
-<div>
-<div class="flex items-center gap-2.5 flex-wrap">
-<h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white flex items-center gap-1.5">
-            Smart Environmental Sensing System (ESS)
-          </h1>
-<span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Lab Sehat &amp; Aman</span>
-</div>
-<p class="text-xs text-slate-300 font-medium">Laboratorium &amp; Bengkel Teknik Mekatronika, POLTEKOM</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<!-- Status pill -->
-<div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-xs font-medium" id="systemStatusPill">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-</span>
-<span id="systemStatusText" class="">Sistem Pemantau Aktif</span>
-</div>
-<!-- Simulator Button: Normal / Bahaya -->
-<button class="group px-4 py-2 rounded-xl bg-red-500/15 hover:bg-red-500/25 border border-red-500/35 text-red-200 text-xs font-semibold flex items-center gap-2 transition-all shadow-md active:scale-95" id="btnDangerToggle" onclick="toggleDangerSimulation()">
-<span class="text-base group-hover:scale-125 transition-transform" id="btnDangerIcon">🚨</span>
-<span id="btnDangerLabel" class="">Simulasi Status: Bahaya</span>
-</button>
-<!-- Audio Mute Toggle -->
-<button class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-300 hover:text-white transition" id="btnAudioMute" onclick="toggleAudio()" title="Nyalakan/Matikan Suara Peringatan">
-<span class="material-symbols-outlined text-[19px] block" id="audioIcon">volume_up</span>
-</button>
-</div>
-</header>
-<!-- MAIN DASHBOARD CONTENT -->
-<main class="flex-1 max-w-[1550px] w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6 relative z-10">
-<!-- 1. BANNER STATUS UTAMA (RAMAH & MUDAH DIPAHAMI) -->
-<section class="relative overflow-hidden rounded-3xl bg-slate-950/40 backdrop-blur-md border border-white/15 text-slate-100 shadow-2xl transition-all duration-500 group" id="mainStatusBanner">
-  <!-- Ambient background glow behind slider -->
-  <div class="absolute -right-16 -top-16 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500" id="bannerGlow"></div>
-  <div class="absolute -left-16 -bottom-16 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-  <!-- Carousel Viewport -->
-  <div class="relative w-full h-64 sm:h-80 md:h-[370px] overflow-hidden select-none" id="campusCarousel">
-    <!-- Slides Container -->
-    <div class="flex w-full h-full transition-transform duration-700 ease-out" id="carouselTrack" style="transform: translateX(0%);"><div class="w-full h-full flex-shrink-0 relative"><img src="assets/campus_1.jpg" alt="Gedung Utama &amp; Fakultas POLTEKOM" class="w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/25 text-emerald-300 border border-emerald-400/30 flex items-center gap-1.5 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Gedung Terpadu</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-400/30 backdrop-blur-md">Arsitektur Modern POLTEKOM</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">Gedung Utama &amp; Fakultas POLTEKOM</h2><p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed drop-shadow-sm">Tampak perspektif modern kampus dengan aksen merah dan biru, menaungi ruang laboratorium dan perkuliahan vokasi terintegrasi.</p></div></div><div class="w-full h-full flex-shrink-0 relative"><img src="assets/campus_2.jpg" alt="Gedung Kuliah &amp; Atrium Terbuka POLTEKOM" class="w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/25 text-teal-300 border border-teal-400/30 flex items-center gap-1.5 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-teal-400"></span> Fasilitas Perkuliahan</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 backdrop-blur-md">Atrium Terbuka Asri</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">Gedung Kuliah &amp; Atrium Terbuka POLTEKOM</h2><p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed drop-shadow-sm">Perspektif koridor dan atrium terbuka bertingkat di POLTEKOM yang sejuk dengan sirkulasi udara alami dan kolam asri.</p></div></div><div class="w-full h-full flex-shrink-0 relative"><img src="assets/campus_3.jpg" alt="Gedung Rektorat &amp; Gerbang Utama POLTEKOM" class="w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/25 text-sky-300 border border-sky-400/30 flex items-center gap-1.5 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-sky-400"></span> Fasad Ikonik</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-slate-200 border border-white/15 backdrop-blur-md">Pusat Administrasi &amp; Rektorat</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">Gedung Rektorat &amp; Gerbang Utama POLTEKOM</h2><p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed drop-shadow-sm">Tampak depan simetris ikonik Politeknik Kota Malang dengan pilar gagah cerah serta sistem pemantauan terpusat.</p></div></div></div>
-
-    <!-- Top Badges Overlay -->
-    <div class="absolute top-4 left-4 right-4 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between pointer-events-none z-20">
-      <div class="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-white/15 pointer-events-auto shadow-md">
-        <span class="w-7 h-7 rounded-xl bg-gradient-to-tr from-sky-500/30 to-teal-400/30 border border-sky-400/35 flex items-center justify-center text-sm">
-          🏛️
-        </span>
-        <div class="flex flex-col">
-          <span class="text-[11px] font-bold text-white tracking-tight">POLTEKOM</span>
-          <span class="text-[9px] text-sky-300 font-mono">Galeri Kampus</span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border border-white/15 pointer-events-auto shadow-md text-xs font-mono text-emerald-300 font-semibold">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="hidden sm:inline">Kampus Aktif Terpantau</span>
-        <span class="sm:hidden">Aktif</span>
-      </div>
-    </div>
-
-    <!-- Prev & Next Arrows -->
-    <button onclick="prevSlide()" aria-label="Slide Sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-2xl bg-slate-950/60 hover:bg-slate-900/90 text-white border border-white/20 hover:border-sky-400/50 backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-90 shadow-lg">
-      <span class="material-symbols-outlined text-xl block">chevron_left</span>
-    </button>
-    <button onclick="nextSlide()" aria-label="Slide Selanjutnya" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-2xl bg-slate-950/60 hover:bg-slate-900/90 text-white border border-white/20 hover:border-sky-400/50 backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-90 shadow-lg">
-      <span class="material-symbols-outlined text-xl block">chevron_right</span>
-    </button>
-
-    <!-- Slide Dots Indicators -->
-    <div class="absolute bottom-3 sm:bottom-4 right-4 sm:right-8 z-20 flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-      <button onclick="goToSlide(0)" class="carousel-dot w-6 h-2 rounded-full bg-emerald-400 transition-all duration-300" aria-label="Slide 1"></button>
-      <button onclick="goToSlide(1)" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300" aria-label="Slide 2"></button>
-      <button onclick="goToSlide(2)" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300" aria-label="Slide 3"></button>
+      <p class="text-xs text-stone-300 font-medium">Informasi Kualitas Udara & Keselamatan Ruangan Lab Terkini • Bengkel Mekatronika POLTEKOM</p>
     </div>
   </div>
+  <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-stone-200 text-xs font-medium" id="systemStatusPill">
+      <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span></span>
+      <span id="systemStatusText">Sistem Pemantau Aktif</span>
+    </div>
+  </div>
+</header>
 
-  
-</section>
-<!-- 2. GRID 3 KARTU STATUS BESAR (AWAM-FRIENDLY) + CHATBOT ESI -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-<!-- LEFT: 3 KARTU STATUS UTAMA (Zero Technical Jargon) -->
-<div class="lg:col-span-5 xl:col-span-5 space-y-4"><div class="rounded-2xl p-4 sm:p-5 border border-sky-400/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20" id="cardComfort" style="background: rgba(15, 23, 42, 0.22); box-shadow: rgba(0, 0, 0, 0.3) 0px 16px 36px 0px;"><div class="flex items-start justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-sky-500/20 border border-sky-400/35 flex items-center justify-center text-2xl shadow-sm">🌡️</div><div><div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>Kondisi Udara</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-sky-400/10 text-sky-300 border border-sky-400/30 font-mono">Sensor DHT22</span></div><h3 class="text-base font-bold text-white mt-0.5">Kenyamanan Ruangan (Suhu &amp; Udara)</h3></div></div><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-400/30 flex-shrink-0" id="badgeComfort">Optimal</span></div><div class="my-3"><div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm" id="displayComfort">25°C • Sejuk &amp; Pas</div><div class="flex flex-wrap items-center gap-2 mt-1.5"><span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1" id="badgeHumidity"><span class="">💧</span> Kelembapan 52%</span><span class="text-xs text-slate-300 font-medium">Sirkulasi baik</span></div><div class="mt-3 w-full bg-slate-950/60 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-sky-400 via-teal-400 to-emerald-400 transition-all duration-500" id="barComfort" style="width: 45%;"></div></div></div><div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs"><span class="text-slate-300 font-medium">Kesimpulan:</span><span class="font-bold text-emerald-400 flex items-center gap-1 text-xs" id="summaryComfort"><span class="">✅</span> Sangat nyaman untuk riset &amp; praktikum</span></div></div><div class="rounded-2xl p-4 sm:p-5 border border-emerald-500/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20" id="cardSmoke" style="background: rgba(15, 23, 42, 0.22); box-shadow: rgba(0, 0, 0, 0.3) 0px 16px 36px 0px;"><div class="flex items-start justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-400/35 flex items-center justify-center text-2xl shadow-sm" id="iconSmokeBox">🛡️</div><div><div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Pencegahan Kebakaran</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-mono">Sensor MQ-2</span></div><h3 class="text-base font-bold text-white mt-0.5">Keamanan Asap &amp; Gas Bocor</h3></div></div><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex-shrink-0" id="badgeSmoke">0% Risiko</span></div><div class="my-3"><div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 tracking-tight drop-shadow-sm" id="displaySmoke">BERSIH (Tidak Ada Asap/Gas)</div><p class="text-xs text-slate-200 mt-1.5 leading-relaxed" id="labelSmokeRisk">Sensor tidak menemukan adanya asap kebakaran atau kebocoran gas LPG.</p><div class="mt-3 space-y-1"><div class="flex justify-between text-[11px] font-medium text-slate-400"><span class="text-emerald-400 font-bold">Aman (0%)</span><span class="">Waspada</span><span class="text-red-400 font-bold">Bahaya</span></div><div class="w-full bg-slate-950/60 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-500" id="barSmoke" style="width: 8%;"></div></div></div></div><div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs"><span class="text-slate-300 font-medium">Status Proteksi:</span><span class="font-bold text-emerald-400 flex items-center gap-1 text-xs" id="summarySmoke"><span class="">🛡️</span> Aman dari kebakaran &amp; LPG</span></div></div><div class="rounded-2xl p-4 sm:p-5 border border-teal-500/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20" id="cardTox" style="background: rgba(15, 23, 42, 0.22); box-shadow: rgba(0, 0, 0, 0.3) 0px 16px 36px 0px;"><div class="flex items-start justify-between gap-3"><div class="flex items-center gap-3"><div class="w-11 h-11 rounded-xl bg-teal-500/20 border border-teal-400/35 flex items-center justify-center text-2xl shadow-sm" id="iconToxBox">🫁</div><div><div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-teal-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>Kesehatan Pernapasan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-teal-500/15 text-teal-300 border border-teal-500/30 font-mono">Sensor MQ-7</span></div><h3 class="text-base font-bold text-white mt-0.5">Kualitas Udara &amp; Gas Beracun</h3></div></div><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30 flex-shrink-0" id="badgeTox">Sangat Bersih</span></div><div class="my-3"><div class="text-2xl sm:text-3xl font-extrabold text-teal-300 tracking-tight drop-shadow-sm" id="displayTox">BEBAS RACUN (100% Aman)</div><p class="text-xs text-slate-200 mt-1.5 leading-relaxed" id="labelToxDesc">Kadar udara murni dan sangat bersih untuk dihirup oleh praktikan.</p><div class="mt-3 space-y-1"><div class="flex justify-between text-[11px] font-medium text-slate-400"><span class="text-emerald-400 font-bold">Sehat</span><span class="">Normal</span><span class="text-red-400 font-bold">Berbahaya</span></div><div class="w-full bg-slate-950/60 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-teal-400 to-emerald-400 transition-all duration-500" id="barTox" style="width: 5%;"></div></div></div></div><div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs"><span class="text-slate-300 font-medium">Uji Toksisitas:</span><span class="font-bold text-emerald-400 flex items-center gap-1 text-xs" id="summaryTox"><span class="">🍃</span> Tidak terdeteksi Karbon Monoksida</span></div></div></div>
-<!-- RIGHT: JENDELA CHATBOT ESI -->
-<aside class="lg:col-span-7 xl:col-span-7 sticky top-24"><div class="bg-slate-950/30 backdrop-blur-md rounded-3xl p-5 sm:p-7 border border-white/15 flex flex-col h-[670px] shadow-2xl relative"><div class="flex items-center justify-between pb-4 border-b border-white/10"><div class="flex items-center gap-3.5"><div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500/25 via-indigo-500/20 to-emerald-500/20 border border-sky-400/40 flex items-center justify-center text-2xl shadow-inner">🤖</div><div><h3 class="text-lg font-bold text-white flex items-center gap-2">ESI Assistant<span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">Gemini AI</span></h3><div class="flex items-center gap-1.5 text-xs text-emerald-400 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Environmental Sensing Intelligence Aktif</div></div></div><div class="flex items-center gap-2"><span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online 24 Jam</span></div></div><div class="flex-1 overflow-y-auto my-4 space-y-3.5 pr-2 text-sm" id="chatFeed"><div class="flex gap-3 items-start"><div class="w-9 h-9 rounded-xl bg-indigo-600/35 border border-indigo-400/30 flex-shrink-0 flex items-center justify-center text-lg shadow-sm">🤖</div><div class="bg-slate-950/50 backdrop-blur-sm rounded-2xl rounded-tl-none p-4 border border-white/10 text-slate-100 max-w-[85%] leading-relaxed shadow-sm">Halo! Saya <strong>ESI (Environmental Sensing Intelligence)</strong>. Laboratorium &amp; Bengkel Mekatronika POLTEKOM saat ini aman, sejuk, dan udaranya bersih. Ada informasi terkait kualitas udara (CO/Asap), suhu, atau protokol keselamatan bengkel yang ingin kamu tanyakan?</div></div></div><div class="py-3 border-t border-white/10"><div class="text-xs font-bold text-slate-300 mb-2.5 uppercase tracking-wider flex items-center justify-between"><span class="">Pertanyaan Cepat:</span><span class="text-slate-400 lowercase font-normal">klik tombol di bawah untuk bertanya instan</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-sky-500/20 text-slate-200 hover:text-sky-300 border border-white/10 hover:border-sky-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Apakah udara lab sehat?')"><span class="">🍃</span> Apakah udara lab sehat &amp; bebas polusi?</button><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-amber-500/20 text-slate-200 hover:text-amber-300 border border-white/10 hover:border-amber-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Bagaimana suhu ruangan lab saat ini?')"><span class="">🌡️</span> Berapa suhu &amp; kelembapan saat ini?</button><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-red-500/20 text-slate-200 hover:text-red-300 border border-white/10 hover:border-red-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Apakah ada asap atau kebocoran gas?')"><span class="">🔥</span> Cek deteksi asap &amp; kebocoran gas LPG</button><button class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 text-slate-200 hover:text-emerald-300 border border-white/10 hover:border-emerald-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Tips keselamatan lab')"><span class="">💡</span> Tips menjaga udara &amp; keselamatan lab</button></div></div><form class="flex items-center gap-2.5 pt-3 border-t border-white/10" onsubmit="handleUserSubmit(event)"><input class="flex-1 bg-slate-950/70 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition shadow-inner" id="inputMessage" placeholder="Tanyakan kondisi bengkel atau keselamatan lab ke ESI..." type="text"><button class="px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition flex-shrink-0 shadow-lg shadow-emerald-500/25 active:scale-95 flex items-center gap-1.5" type="submit"><span class="text-xs font-bold hidden sm:inline">Kirim</span><span class="material-symbols-outlined text-lg block">send</span></button></form></div></aside>
-</div>
+<!-- MAIN DASHBOARD CONTENT -->
+<main class="flex-1 max-w-[1550px] w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6 relative z-10">
+  <!-- 1. BANNER STATUS UTAMA & CAROUSEL KAMPUS POLTEKOM -->
+  <section class="relative overflow-hidden rounded-3xl apple-card text-stone-100 shadow-xl transition-all duration-500 group" id="mainStatusBanner">
+    <div class="absolute -right-16 -top-16 w-80 h-80 bg-amber-500/12 rounded-full blur-3xl pointer-events-none transition-colors duration-500" id="bannerGlow"></div>
+    <div class="relative w-full h-64 sm:h-80 md:h-[370px] overflow-hidden select-none" id="campusCarousel">
+      <div class="flex w-full h-full transition-transform duration-700 ease-out" id="carouselTrack" style="transform: translateX(0%);">
+        <div class="w-full h-full flex-shrink-0 relative"><img src="assets/campus_1.jpg" alt="Kawasan Hijau POLTEKOM" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-[#0f1115]/90 via-[#0f1115]/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/25 backdrop-blur-md flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Gedung Terpadu</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/25 backdrop-blur-md">Arsitektur Modern POLTEKOM</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight drop-shadow-md">Kawasan Hijau POLTEKOM</h2><p class="text-xs sm:text-sm text-stone-200 max-w-2xl leading-relaxed drop-shadow-sm">Tampak perspektif modern kampus vokasi terpadu dengan fasilitas laboratorium dan bengkel mekatronika modern.</p></div></div>
+        <div class="w-full h-full flex-shrink-0 relative"><img src="assets/campus_2.jpg" alt="Atrium Terbuka POLTEKOM" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-[#0f1115]/90 via-[#0f1115]/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/20 text-teal-300 border border-teal-400/25 backdrop-blur-md flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> Fasilitas Perkuliahan</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/25 backdrop-blur-md">Atrium Terbuka Asri</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight drop-shadow-md">Atrium Terbuka POLTEKOM</h2><p class="text-xs sm:text-sm text-stone-200 max-w-2xl leading-relaxed drop-shadow-sm">Perspektif koridor dan atrium bertingkat di POLTEKOM yang sejuk dengan sirkulasi udara alami dan taman asri.</p></div></div>
+        <div class="w-full h-full flex-shrink-0 relative"><img src="assets/campus_3.jpg" alt="Gedung Rektorat POLTEKOM" class="absolute inset-0 w-full h-full object-cover object-center"><div class="absolute inset-0 bg-gradient-to-t from-[#0f1115]/90 via-[#0f1115]/40 to-black/30"></div><div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col gap-1.5 z-10 pointer-events-none"><div class="flex items-center gap-2 flex-wrap mb-1"><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/25 backdrop-blur-md flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Fasad Ikonik</span><span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-stone-200 border border-white/15 backdrop-blur-md">Pusat Administrasi & Rektorat</span></div><h2 class="text-xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight drop-shadow-md">Gedung Rektorat & Gerbang Utama</h2><p class="text-xs sm:text-sm text-stone-200 max-w-2xl leading-relaxed drop-shadow-sm">Gerbang utama simetris Politeknik Kota Malang dengan pilar kokoh serta sistem pemantauan lingkungan terintegrasi.</p></div></div>
+      </div>
+      <div class="absolute top-4 left-4 right-4 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between pointer-events-none z-20">
+        <div class="flex items-center gap-2 bg-[#0f1115]/85 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-white/10 pointer-events-auto shadow-md">
+          <span class="w-7 h-7 rounded-xl bg-amber-500/20 border border-amber-400/25 flex items-center justify-center text-sm">🏛️</span>
+          <div class="flex flex-col"><span class="text-[11px] font-bold text-white tracking-tight">POLTEKOM</span><span class="text-[9px] text-amber-300 font-mono">Galeri Kampus</span></div>
+        </div>
+        <div class="flex items-center gap-2 bg-[#0f1115]/85 backdrop-blur-md px-3.5 py-1.5 rounded-2xl border border-white/10 pointer-events-auto shadow-md text-xs font-medium text-emerald-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>Kampus Terpantau Aktif</span>
+        </div>
+      </div>
+      <button onclick="prevSlide()" aria-label="Slide Sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-2xl bg-[#0f1115]/75 hover:bg-[#0f1115]/95 text-white border border-white/15 hover:border-amber-400/40 backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md"><span class="material-symbols-outlined text-xl block">chevron_left</span></button>
+      <button onclick="nextSlide()" aria-label="Slide Selanjutnya" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-2xl bg-[#0f1115]/75 hover:bg-[#0f1115]/95 text-white border border-white/15 hover:border-amber-400/40 backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-90 shadow-md"><span class="material-symbols-outlined text-xl block">chevron_right</span></button>
+      <div class="absolute bottom-3 sm:bottom-4 right-4 sm:right-8 z-20 flex items-center gap-2 bg-[#0f1115]/75 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+        <button onclick="goToSlide(0)" class="carousel-dot w-6 h-2 rounded-full bg-amber-400 transition-all duration-300" aria-label="Slide 1"></button>
+        <button onclick="goToSlide(1)" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300" aria-label="Slide 2"></button>
+        <button onclick="goToSlide(2)" class="carousel-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. GRID 3 KARTU STATUS BESAR DENGAN SLIDER + CHATBOT ESI AI -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <!-- LEFT: 3 KARTU STATUS UTAMA DENGAN SLIDER VERTIKAL SINKRON -->
+    <div class="lg:col-span-5 xl:col-span-5 flex flex-col h-[670px] relative">
+      <div class="flex items-center justify-between pb-2.5 mb-2 px-1 border-b border-white/10">
+        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span><span class="text-xs font-bold text-white uppercase tracking-wider">Panel Pemantau Sensor (3 Sensor)</span></div>
+        <div class="flex items-center gap-1.5 text-[11px] font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span>Live Feed</span></div>
+      </div>
+      <div class="flex-1 flex gap-2 min-h-0 overflow-hidden">
+        <!-- Sensor Cards Scroll Container -->
+        <div class="flex-1 overflow-y-auto pr-1 space-y-3.5 sensor-scroll-panel scroll-smooth select-text" id="sensorScrollBox">
+          <!-- CARD 1: DHT22 (Kondisi Udara / Kenyamanan) -->
+          <div class="apple-card rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between" id="cardComfort">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-amber-500/15 border border-amber-400/25 flex items-center justify-center text-2xl shadow-sm text-amber-300">🌡️</div>
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-amber-300 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Kondisi Udara</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold font-mono bg-amber-500/10 text-amber-300 border border-amber-400/25">Sensor DHT22</span></div>
+                  <h3 class="text-base font-bold text-white mt-0.5">Kenyamanan Ruangan (Suhu & Udara)</h3>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/25 flex-shrink-0" id="badgeComfort">Optimal</span>
+            </div>
+            <div class="my-3">
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight drop-shadow-sm" id="displayComfort">25°C • Sejuk & Pas</div>
+              <div class="flex flex-wrap items-center gap-2 mt-1.5">
+                <span class="px-2 py-0.5 rounded-lg text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/25 flex items-center gap-1" id="badgeHumidity">💧 Kelembapan 52%</span>
+                <span class="text-xs text-stone-300 font-medium">Sirkulasi baik</span>
+              </div>
+              <div class="mt-3 w-full bg-stone-950/70 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-amber-400 to-amber-500" id="barComfort" style="width: 45%;"></div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+              <span class="text-stone-400 font-medium">Kesimpulan:</span>
+              <span class="font-medium text-emerald-300 flex items-center gap-1 text-xs" id="summaryComfort">✅ Sangat nyaman untuk riset & praktikum</span>
+            </div>
+          </div>
+
+          <!-- CARD 2: MQ-2 (Pencegahan Kebakaran / Asap & Gas Bocor) -->
+          <div class="apple-card rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between" id="cardSmoke">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-400/25 flex items-center justify-center text-2xl shadow-sm text-emerald-400" id="iconSmokeBox">🛡️</div>
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-300 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Pencegahan Kebakaran</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">Sensor MQ-2</span></div>
+                  <h3 class="text-base font-bold text-white mt-0.5">Keamanan Asap & Gas Bocor</h3>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 flex-shrink-0" id="badgeSmoke">0% Risiko</span>
+            </div>
+            <div class="my-3">
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight" id="displaySmoke">BERSIH (Tidak Ada Asap/Gas)</div>
+              <p class="text-xs text-stone-300 mt-1.5 leading-relaxed" id="labelSmokeRisk">Sensor tidak menemukan adanya asap kebakaran atau kebocoran gas LPG.</p>
+              <div class="mt-3 space-y-1">
+                <div class="flex justify-between text-[11px] font-medium text-stone-400"><span class="font-semibold text-emerald-300">Aman (0%)</span><span class="font-medium text-amber-300">Waspada</span><span class="font-semibold text-rose-300">Bahaya</span></div>
+                <div class="w-full bg-stone-950/70 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-emerald-400 to-amber-400" id="barSmoke" style="width: 8%;"></div></div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+              <span class="text-stone-400 font-medium">Status Proteksi:</span>
+              <span class="font-medium text-emerald-300 flex items-center gap-1 text-xs" id="summarySmoke">🛡️ Aman dari kebakaran & LPG</span>
+            </div>
+          </div>
+
+          <!-- CARD 3: MQ-7 (Kesehatan Pernapasan / Gas Beracun CO) -->
+          <div class="apple-card rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between" id="cardTox">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-teal-500/15 border border-teal-400/25 flex items-center justify-center text-2xl shadow-sm text-teal-400" id="iconToxBox">🫁</div>
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap"><span class="text-[11px] font-semibold uppercase tracking-wider text-teal-300 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>Kesehatan Pernapasan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold font-mono bg-teal-500/10 text-teal-300 border border-teal-400/25">Sensor MQ-7</span></div>
+                  <h3 class="text-base font-bold text-white mt-0.5">Kualitas Udara & Gas Beracun</h3>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-500/15 text-teal-300 border border-teal-400/25 flex-shrink-0" id="badgeTox">🌿 Udara Bersih & Segar</span>
+            </div>
+            <div class="my-3">
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight" id="displayTox">BEBAS RACUN (100% Aman)</div>
+              <p class="text-xs text-stone-300 mt-1.5 leading-relaxed" id="labelToxDesc">Kadar udara murni dan sangat bersih untuk dihirup oleh praktikan.</p>
+              <div class="mt-3 space-y-1">
+                <div class="flex justify-between text-[11px] font-medium text-stone-400"><span class="font-semibold text-teal-300">Aman (Sehat)</span><span class="font-medium text-amber-300">Waspada</span><span class="font-semibold text-rose-300">Berbahaya</span></div>
+                <div class="w-full bg-stone-950/70 rounded-full h-2.5 p-0.5 border border-white/10 overflow-hidden"><div class="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-teal-400 to-emerald-400" id="barTox" style="width: 5%;"></div></div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+              <span class="text-stone-400 font-medium">Uji Toksisitas:</span>
+              <span class="font-medium text-emerald-300 flex items-center gap-1 text-xs" id="summaryTox">🍃 Tidak terdeteksi Karbon Monoksida</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Synchronized Vertical Slider Controls -->
+        <div class="w-7 flex flex-col items-center justify-between py-1 bg-stone-950/60 rounded-2xl border border-white/10 backdrop-blur-md flex-shrink-0 select-none">
+          <button id="btnScrollUp" onclick="scrollSensors(-1)" aria-label="Scroll Sensor Ke Atas" class="w-6 h-6 rounded-lg bg-white/5 hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/30 text-stone-300 hover:text-amber-300 flex items-center justify-center transition active:scale-90" title="Scroll Ke Atas">
+            <span class="material-symbols-outlined text-xs block">keyboard_arrow_up</span>
+          </button>
+          <div id="sensorSliderTrack" class="flex-1 my-2 w-2.5 bg-stone-900/90 rounded-full border border-white/10 relative overflow-hidden flex flex-col justify-start p-0.5 cursor-pointer select-none group" title="Klik atau seret untuk menggulir sensor">
+            <div id="sensorSliderThumb" class="w-full bg-gradient-to-b from-amber-400 to-amber-600 rounded-full cursor-grab active:cursor-grabbing hover:brightness-110 transition-transform duration-75 shadow-sm" style="height: 35%; transform: translateY(0px);"></div>
+          </div>
+          <button id="btnScrollDown" onclick="scrollSensors(1)" aria-label="Scroll Sensor Ke Bawah" class="w-6 h-6 rounded-lg bg-white/5 hover:bg-amber-500/20 border border-white/10 hover:border-amber-400/30 text-stone-300 hover:text-amber-300 flex items-center justify-center transition active:scale-90" title="Scroll Ke Bawah">
+            <span class="material-symbols-outlined text-xs block">keyboard_arrow_down</span>
+          </button>
+        </div>
+      </div>
+      <div class="pt-2 flex items-center justify-between text-[11px] text-stone-400">
+        <span class="flex items-center gap-1 font-mono text-[10px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>3 Sensor Terkoneksi</span>
+        <span class="text-[10px] text-stone-400">Gunakan slider untuk melihat sensor</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: JENDELA CHATBOT ESI AI (WARM CHARCOAL & AMBER ACCENT) -->
+    <aside class="lg:col-span-7 xl:col-span-7 sticky top-24">
+      <div class="apple-card rounded-3xl p-5 sm:p-7 flex flex-col h-[670px] shadow-xl relative">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-400/25 flex items-center justify-center text-2xl shadow-sm text-amber-300">🤖</div>
+            <div>
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">ESI AI <span class="text-[11px] font-medium px-2 py-0.5 rounded-lg bg-amber-500/15 text-amber-300 border border-amber-400/20">Asisten Cerdas ESI AI</span></h3>
+              <div class="flex items-center gap-1.5 text-xs text-emerald-300 font-medium mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Asisten Pemantau Kualitas Lab Aktif</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online 24 Jam</span>
+          </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto my-4 space-y-3.5 pr-2 text-sm" id="chatFeed">
+          <div class="flex gap-3 items-start">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/25 flex-shrink-0 flex items-center justify-center text-lg shadow-sm text-amber-300">🤖</div>
+            <div class="bg-stone-900/85 rounded-2xl rounded-tl-sm p-4 border border-stone-800 text-stone-100 max-w-[85%] leading-relaxed shadow-sm">
+              Halo! Saya <strong>ESI AI</strong>. Ruangan Laboratorium & Bengkel Mekatronika POLTEKOM saat ini aman, sejuk, dan udaranya bersih. Ada informasi seputar kualitas udara atau keselamatan lab yang ingin kamu tanyakan?
+            </div>
+          </div>
+        </div>
+
+        <div class="py-3 border-t border-white/10">
+          <div class="text-xs font-semibold text-stone-400 mb-2.5 uppercase tracking-wider flex items-center justify-between">
+            <span>Pertanyaan Cepat:</span><span class="text-stone-400 lowercase font-normal">klik untuk bertanya instan</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button class="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-amber-500/10 text-stone-200 hover:text-amber-200 border border-white/10 hover:border-amber-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Apakah udara lab sehat?')"><span>🍃</span> Apakah udara lab sehat & bersih?</button>
+            <button class="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-amber-500/10 text-stone-200 hover:text-amber-200 border border-white/10 hover:border-amber-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Bagaimana suhu ruangan lab saat ini?')"><span>🌡️</span> Berapa suhu & kelembapan saat ini?</button>
+            <button class="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-amber-500/10 text-stone-200 hover:text-amber-200 border border-white/10 hover:border-amber-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Apakah ada asap atau kebocoran gas?')"><span>🔥</span> Cek deteksi asap & kebocoran gas LPG</button>
+            <button class="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-amber-500/10 text-stone-200 hover:text-amber-200 border border-white/10 hover:border-amber-400/30 text-xs font-medium transition active:scale-95 text-left flex items-center gap-2" onclick="askPrompt('Tips keselamatan lab')"><span>💡</span> Tips menjaga udara & keselamatan lab</button>
+          </div>
+        </div>
+
+        <form class="flex items-center gap-2.5 pt-3 border-t border-white/10" onsubmit="handleUserSubmit(event)">
+          <input class="flex-1 bg-[#0f1115]/90 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white placeholder-stone-400 focus:outline-none focus:border-amber-400/50 focus:ring-1 focus:ring-amber-400/25 transition shadow-inner" id="inputMessage" placeholder="Tulis pertanyaanmu seputar lab di sini..." type="text">
+          <button class="px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold transition flex-shrink-0 shadow-lg shadow-amber-500/20 active:scale-95 flex items-center gap-2" type="submit">
+            <span class="text-xs font-bold hidden sm:inline">Kirim</span><span class="material-symbols-outlined text-lg block">send</span>
+          </button>
+        </form>
+      </div>
+    </aside>
+  </div>
 </main>
-<!-- SCRIPTS ENGINE -->
-  <script src="config.js"></script>
-  <script src="app.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="config.js"></script>
+<script src="app.js"></script>
 </body></html>

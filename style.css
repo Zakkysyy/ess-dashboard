@@ -1,48 +1,54 @@
 /* =============================================================================
    Smart Environmental Sensing System (ESS) - Stylesheet
+   Konsep A: Clean Smart-Home & Lifestyle (Apple / Google Nest Inspired)
    Bengkel Mekatronika Politeknik Kota Malang (POLTEKOM)
    ============================================================================= */
 
 body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #f1f5f9;
-      background-color: #0b1120;
-    }
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  color: #f5f5f4;
+  background-color: #0f1115;
+  overflow-x: hidden;
+}
 
-    .glass-acrylic {
-      background: rgba(15, 23, 42, 0.58);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.45);
-    }
+/* Apple & Nest-style Warm Frosted Matte Acrylic Card */
+.apple-card {
+  background: rgba(22, 25, 32, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 245, 230, 0.08);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    .glass-card-clean {
-      background: rgba(15, 23, 42, 0.52);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.4);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+.apple-card:hover {
+  background: rgba(28, 32, 40, 0.85);
+  border-color: rgba(251, 191, 36, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px -4px rgba(0, 0, 0, 0.55);
+}
 
-    .glass-card-clean:hover {
-      background: rgba(15, 23, 42, 0.65);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-3px);
-      box-shadow: 0 20px 38px -6px rgba(0, 0, 0, 0.55);
-    }
+/* Custom smooth subtle warm scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(24, 24, 27, 0.25); }
+::-webkit-scrollbar-thumb { background: rgba(255, 245, 230, 0.15); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(251, 191, 36, 0.35); }
 
-    /* Custom smooth scrollbar */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.3); }
-    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.35); }
+/* Hide standard scrollbar on sensor container to rely on custom synchronized slider */
+.sensor-scroll-panel {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.sensor-scroll-panel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+  width: 0;
+  height: 0;
+}
 
 /* Typing Indicator Animation */
 @keyframes pulseDot {
-  0%, 100% { opacity: 0.2; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
 }
 
 .typing-dot {
@@ -50,3 +56,4 @@ body {
 }
 .typing-dot:nth-child(1) { animation-delay: -0.32s; }
 .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+

@@ -184,7 +184,7 @@ function applyDisplay(state) {
   if (bannerGlow) {
     bannerGlow.className = isDanger
       ? "absolute -right-16 -top-16 w-80 h-80 bg-red-600/30 rounded-full blur-3xl pointer-events-none transition-colors duration-500"
-      : "absolute -right-16 -top-16 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500";
+      : "absolute -right-16 -top-16 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none transition-colors duration-500";
   }
 
   // 2. Card 1: Suhu & Kelembapan (DHT22)
@@ -201,7 +201,7 @@ function applyDisplay(state) {
   if (displayComfort) {
     if (tempVal > 35.0) {
       displayComfort.innerText = `${tempVal.toFixed(1)}°C • Suhu Panas Ekstrem!`;
-      displayComfort.className = "text-2xl sm:text-3xl font-extrabold text-red-400 tracking-tight drop-shadow-sm";
+      displayComfort.className = "text-2xl sm:text-3xl font-extrabold text-rose-300 tracking-tight";
       if (badgeComfort) {
         badgeComfort.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/25 text-red-300 border border-red-500/40 animate-pulse";
         badgeComfort.innerText = "Overheat!";
@@ -210,19 +210,19 @@ function applyDisplay(state) {
         summaryComfort.className = "font-bold text-red-400 flex items-center gap-1 text-xs";
         summaryComfort.innerHTML = "<span>⚠️</span> Suhu ruangan melebihi batas aman!";
       }
-      if (cardComfort) cardComfort.className = "rounded-2xl p-4 sm:p-5 border border-red-500/50 bg-red-950/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md";
+      if (cardComfort) cardComfort.className = "rounded-3xl p-5 sm:p-6 border border-rose-500/35 bg-rose-950/20 relative overflow-hidden flex flex-col justify-between backdrop-blur-xl";
     } else {
-      displayComfort.innerText = `${tempVal.toFixed(1)}°C • Suhu Nyaman & Sejuk`;
-      displayComfort.className = "text-2xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm";
+      displayComfort.innerText = `${tempVal.toFixed(1)}°C • Sejuk & Pas`;
+      displayComfort.className = "text-2xl sm:text-3xl font-extrabold text-[#fdfbf7] tracking-tight";
       if (badgeComfort) {
-        badgeComfort.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-400/30 flex-shrink-0";
+        badgeComfort.className = "px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/25 flex-shrink-0";
         badgeComfort.innerText = "Optimal";
       }
       if (summaryComfort) {
-        summaryComfort.className = "font-bold text-emerald-400 flex items-center gap-1 text-xs";
+        summaryComfort.className = "font-medium text-emerald-300 flex items-center gap-1.5 text-xs";
         summaryComfort.innerHTML = "<span>✅</span> Sangat nyaman untuk riset & praktikum";
       }
-      if (cardComfort) cardComfort.className = "rounded-2xl p-4 sm:p-5 border border-sky-400/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20";
+      if (cardComfort) cardComfort.className = "apple-card rounded-3xl p-5 sm:p-6 relative overflow-hidden flex flex-col justify-between";
     }
   }
 
@@ -248,7 +248,7 @@ function applyDisplay(state) {
   if (displaySmoke) {
     if (mq2Val > 300) {
       displaySmoke.innerText = `BAHAYA! TERDETEKSI ASAP (${mq2Val} PPM)`;
-      displaySmoke.className = "text-2xl sm:text-3xl font-extrabold text-red-400 tracking-tight drop-shadow-sm";
+      displaySmoke.className = "text-2xl sm:text-3xl font-extrabold text-rose-300 tracking-tight";
       if (badgeSmoke) {
         badgeSmoke.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/30 text-red-200 border border-red-500/50 animate-pulse";
         badgeSmoke.innerText = "Risiko Tinggi!";
@@ -262,24 +262,24 @@ function applyDisplay(state) {
         iconSmokeBox.className = "w-11 h-11 rounded-xl bg-red-500/30 border border-red-500/50 flex items-center justify-center text-2xl shadow-sm text-red-400 animate-pulse";
         iconSmokeBox.innerText = "🔥";
       }
-      if (cardSmoke) cardSmoke.className = "rounded-2xl p-4 sm:p-5 border border-red-500/60 bg-red-950/35 relative overflow-hidden flex flex-col justify-between backdrop-blur-md";
+      if (cardSmoke) cardSmoke.className = "rounded-3xl p-5 sm:p-6 border border-rose-500/35 bg-rose-950/20 relative overflow-hidden flex flex-col justify-between backdrop-blur-xl";
     } else {
-      displaySmoke.innerText = `BERSIH (${mq2Val} PPM • Aman)`;
-      displaySmoke.className = "text-2xl sm:text-3xl font-extrabold text-emerald-400 tracking-tight drop-shadow-sm";
+      displaySmoke.innerText = `Aman (${mq2Val} PPM • Bebas Asap)`;
+      displaySmoke.className = "text-2xl sm:text-3xl font-extrabold text-white tracking-tight";
       if (badgeSmoke) {
-        badgeSmoke.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex-shrink-0";
+        badgeSmoke.className = "px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-400/25 flex-shrink-0";
         badgeSmoke.innerText = "0% Risiko";
       }
       if (labelSmokeRisk) labelSmokeRisk.innerText = "Sensor tidak menemukan adanya kepulan asap kebakaran maupun kebocoran gas LPG.";
       if (summarySmoke) {
-        summarySmoke.className = "font-bold text-emerald-400 flex items-center gap-1 text-xs";
+        summarySmoke.className = "font-medium text-emerald-300 flex items-center gap-1.5 text-xs";
         summarySmoke.innerHTML = "<span>🛡️</span> Aman dari kebakaran & kebocoran LPG";
       }
       if (iconSmokeBox) {
-        iconSmokeBox.className = "w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-400/35 flex items-center justify-center text-2xl shadow-sm";
+        iconSmokeBox.className = "w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-400/25 flex items-center justify-center text-2xl shadow-sm";
         iconSmokeBox.innerText = "🛡️";
       }
-      if (cardSmoke) cardSmoke.className = "rounded-2xl p-4 sm:p-5 border border-emerald-500/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20";
+      if (cardSmoke) cardSmoke.className = "apple-card rounded-3xl p-5 sm:p-6 relative overflow-hidden flex flex-col justify-between";
     }
   }
   if (barSmoke) {
@@ -301,7 +301,7 @@ function applyDisplay(state) {
   if (displayTox) {
     if (mq7Val > 50) {
       displayTox.innerText = `TERCEMAR GAS CO (${mq7Val} PPM)`;
-      displayTox.className = "text-2xl sm:text-3xl font-extrabold text-red-400 tracking-tight drop-shadow-sm";
+      displayTox.className = "text-2xl sm:text-3xl font-extrabold text-rose-300 tracking-tight";
       if (badgeTox) {
         badgeTox.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/30 text-red-200 border border-red-500/50 animate-pulse";
         badgeTox.innerText = "Berbahaya!";
@@ -315,24 +315,24 @@ function applyDisplay(state) {
         iconToxBox.className = "w-11 h-11 rounded-xl bg-red-500/30 border border-red-500/50 flex items-center justify-center text-2xl shadow-sm text-red-400 animate-pulse";
         iconToxBox.innerText = "⚠️";
       }
-      if (cardTox) cardTox.className = "rounded-2xl p-4 sm:p-5 border border-red-500/60 bg-red-950/35 relative overflow-hidden flex flex-col justify-between backdrop-blur-md";
+      if (cardTox) cardTox.className = "rounded-3xl p-5 sm:p-6 border border-rose-500/35 bg-rose-950/20 relative overflow-hidden flex flex-col justify-between backdrop-blur-xl";
     } else {
-      displayTox.innerText = `BEBAS RACUN (${mq7Val} PPM CO)`;
-      displayTox.className = "text-2xl sm:text-3xl font-extrabold text-teal-300 tracking-tight drop-shadow-sm";
+      displayTox.innerText = `Bebas Racun (${mq7Val} PPM CO)`;
+      displayTox.className = "text-2xl sm:text-3xl font-extrabold text-white tracking-tight";
       if (badgeTox) {
-        badgeTox.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30 flex-shrink-0";
+        badgeTox.className = "px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/15 text-teal-300 border border-teal-400/25 flex-shrink-0";
         badgeTox.innerText = "Sangat Bersih";
       }
       if (labelToxDesc) labelToxDesc.innerText = "Kadar udara murni dan sangat bersih untuk dihirup oleh mahasiswa dan teknisi lab.";
       if (summaryTox) {
-        summaryTox.className = "font-bold text-emerald-400 flex items-center gap-1 text-xs";
+        summaryTox.className = "font-medium text-emerald-300 flex items-center gap-1.5 text-xs";
         summaryTox.innerHTML = "<span>🍃</span> Kadar Karbon Monoksida dalam batas aman";
       }
       if (iconToxBox) {
-        iconToxBox.className = "w-11 h-11 rounded-xl bg-teal-500/20 border border-teal-400/35 flex items-center justify-center text-2xl shadow-sm";
+        iconToxBox.className = "w-11 h-11 rounded-2xl bg-teal-500/15 border border-teal-400/25 flex items-center justify-center text-2xl shadow-sm";
         iconToxBox.innerText = "🫁";
       }
-      if (cardTox) cardTox.className = "rounded-2xl p-4 sm:p-5 border border-teal-500/30 relative overflow-hidden flex flex-col justify-between backdrop-blur-md transition-all duration-300 hover:border-white/20";
+      if (cardTox) cardTox.className = "apple-card rounded-3xl p-5 sm:p-6 relative overflow-hidden flex flex-col justify-between";
     }
   }
   if (barTox) {
@@ -398,7 +398,7 @@ function appendUserMessage(text) {
   const div = document.createElement('div');
   div.className = "flex gap-2 justify-end animate-fadeIn";
   div.innerHTML = `
-    <div class="bg-sky-500/25 border border-sky-400/35 text-sky-100 rounded-2xl rounded-tr-none px-4 py-2.5 max-w-[85%] leading-relaxed shadow-sm">
+    <div class="bg-amber-500/20 border border-amber-400/25 text-amber-100 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%] leading-relaxed shadow-sm">
       ${text}
     </div>
   `;
@@ -414,13 +414,13 @@ function showTypingIndicator() {
   ind.id = "typingIndicator";
   ind.className = "flex gap-3 items-center animate-fadeIn";
   ind.innerHTML = `
-    <div class="w-8 h-8 rounded-xl bg-indigo-600/35 border border-indigo-400/30 flex-shrink-0 flex items-center justify-center text-base shadow-sm">🤖</div>
-    <div class="bg-slate-900/80 rounded-2xl rounded-tl-none p-3 border border-white/10 text-slate-300 text-xs flex items-center gap-2">
+    <div class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-400/25 flex-shrink-0 flex items-center justify-center text-base shadow-sm text-amber-300">🤖</div>
+    <div class="bg-stone-900/80 rounded-2xl rounded-tl-none p-3 border border-stone-800 text-stone-300 text-xs flex items-center gap-2">
       <span>ESI sedang menganalisis data sensor...</span>
       <span class="inline-flex gap-1">
-        <span class="w-1.5 h-1.5 bg-sky-400 rounded-full typing-dot"></span>
-        <span class="w-1.5 h-1.5 bg-sky-400 rounded-full typing-dot"></span>
-        <span class="w-1.5 h-1.5 bg-sky-400 rounded-full typing-dot"></span>
+        <span class="w-1.5 h-1.5 bg-amber-400 rounded-full typing-dot"></span>
+        <span class="w-1.5 h-1.5 bg-amber-400 rounded-full typing-dot"></span>
+        <span class="w-1.5 h-1.5 bg-amber-400 rounded-full typing-dot"></span>
       </span>
     </div>
   `;
@@ -440,10 +440,10 @@ function appendBotMessage(text) {
   const div = document.createElement('div');
   div.className = "flex gap-3 items-start animate-fadeIn";
   div.innerHTML = `
-    <div class="w-8 h-8 rounded-xl bg-indigo-600/35 border border-indigo-400/30 flex-shrink-0 flex items-center justify-center text-base shadow-sm">
+    <div class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-400/25 flex-shrink-0 flex items-center justify-center text-base shadow-sm text-amber-300">
       🤖
     </div>
-    <div class="bg-slate-900/80 rounded-2xl rounded-tl-none p-3.5 border border-white/10 text-slate-100 max-w-[90%] leading-relaxed shadow-sm">
+    <div class="bg-stone-900/85 rounded-2xl rounded-tl-sm p-4 border border-stone-800 text-stone-100 max-w-[90%] leading-relaxed shadow-sm">
       ${text}
     </div>
   `;
@@ -539,10 +539,125 @@ async function processChatQuery(query) {
   }, 400);
 }
 
-// --- 8. INITIALIZATION ON PAGE LOAD ---
+// --- 8. TWO-WAY INTERACTIVE SENSOR SLIDER & PROGRESS SYNCHRONIZATION ---
+function initSensorSliderSync() {
+  const scrollBox = document.getElementById('sensorScrollBox');
+  const track = document.getElementById('sensorSliderTrack');
+  const thumb = document.getElementById('sensorSliderThumb');
+
+  if (!scrollBox || !track || !thumb) return;
+
+  let isDragging = false;
+  let startY = 0;
+  let startScrollTop = 0;
+
+  function updateSliderFromScroll() {
+    const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
+    const scrollRatio = maxScroll > 0 ? (scrollBox.scrollTop / maxScroll) : 0;
+    const clampedRatio = Math.max(0, Math.min(1, scrollRatio));
+
+    const trackHeight = track.clientHeight;
+    const thumbHeight = thumb.clientHeight;
+    const maxThumbMove = Math.max(0, trackHeight - thumbHeight);
+    const thumbY = clampedRatio * maxThumbMove;
+
+    thumb.style.transform = `translateY(${thumbY}px)`;
+  }
+
+  scrollBox.addEventListener('scroll', updateSliderFromScroll, { passive: true });
+
+  track.addEventListener('click', (e) => {
+    if (e.target === thumb) return;
+    const rect = track.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+    const trackHeight = rect.height;
+    const thumbHeight = thumb.clientHeight;
+    const targetThumbY = clickY - (thumbHeight / 2);
+    const maxThumbMove = Math.max(1, trackHeight - thumbHeight);
+    const ratio = Math.max(0, Math.min(1, targetThumbY / maxThumbMove));
+
+    const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
+    scrollBox.scrollTo({
+      top: ratio * maxScroll,
+      behavior: 'smooth'
+    });
+  });
+
+  thumb.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startY = e.clientY;
+    startScrollTop = scrollBox.scrollTop;
+    thumb.classList.add('cursor-grabbing');
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const deltaY = e.clientY - startY;
+    const trackHeight = track.clientHeight;
+    const thumbHeight = thumb.clientHeight;
+    const maxThumbMove = Math.max(1, trackHeight - thumbHeight);
+    const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
+
+    if (maxScroll <= 0) return;
+
+    const scrollDelta = (deltaY / maxThumbMove) * maxScroll;
+    scrollBox.scrollTop = startScrollTop + scrollDelta;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      thumb.classList.remove('cursor-grabbing');
+      document.body.style.userSelect = '';
+    }
+  });
+
+  thumb.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startY = e.touches[0].clientY;
+    startScrollTop = scrollBox.scrollTop;
+    e.preventDefault();
+  }, { passive: false });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const deltaY = e.touches[0].clientY - startY;
+    const trackHeight = track.clientHeight;
+    const thumbHeight = thumb.clientHeight;
+    const maxThumbMove = Math.max(1, trackHeight - thumbHeight);
+    const maxScroll = scrollBox.scrollHeight - scrollBox.clientHeight;
+
+    if (maxScroll <= 0) return;
+
+    const scrollDelta = (deltaY / maxThumbMove) * maxScroll;
+    scrollBox.scrollTop = startScrollTop + scrollDelta;
+  });
+
+  window.addEventListener('touchend', () => {
+    if (isDragging) isDragging = false;
+  });
+
+  window.addEventListener('resize', updateSliderFromScroll);
+  setTimeout(updateSliderFromScroll, 100);
+}
+
+function scrollSensors(direction) {
+  const scrollBox = document.getElementById('sensorScrollBox');
+  if (scrollBox) {
+    const step = direction * 220;
+    scrollBox.scrollBy({ top: step, behavior: 'smooth' });
+  }
+}
+
+// --- 9. INITIALIZATION ON PAGE LOAD ---
 document.addEventListener("DOMContentLoaded", () => {
   // Inisialisasi Carousel
   restartSlideTimer();
+
+  // Inisialisasi Slider Sensor jika elemen tersedia
+  initSensorSliderSync();
 
   // Initial UI Render
   applyDisplay(currentSensorState);
@@ -553,3 +668,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("🏭 Smart Environmental Sensing System (ESS) POLTEKOM initialized successfully!");
 });
+
